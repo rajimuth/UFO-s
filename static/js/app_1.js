@@ -25,6 +25,11 @@ function buildTable(data){
   function handleClick() {
     // Grab the datetime value from the filter
     let date = d3.select("#datetime").property("value");
+    let City = d3.select("#city").property("value");
+    let State = d3.select("#state").property("value");
+    let Country = d3.select("#country").property("value");
+    let Duration = d3.select("#durationMinutes").property("value");
+
     let filteredData = tableData;
   
      // Check to see if a date was entered and filter the
@@ -33,6 +38,26 @@ function buildTable(data){
       // Apply `filter` to the table data to only keep the
       // rows where the `datetime` value matches the filter value
       filteredData = filteredData.filter(row => row.datetime === date);
+    }
+    if (City) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      filteredData = filteredData.filter(row => row.city === City);
+    }
+    if (State) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      filteredData = filteredData.filter(row => row.state === State);
+    }
+    if (Country) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      filteredData = filteredData.filter(row => row.country === Country);
+    }
+    if (Duration) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      filteredData = filteredData.filter(row => row.durationMinutes === Duration);
     }
   
      // Rebuild the table using the filtered data
